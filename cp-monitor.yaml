@@ -1,0 +1,40 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: zookeeper
+  namespace: default
+  labels:
+    prometheus: system-monitoring-prometheus
+spec:
+  scrapeInterval: 5s
+  staticConfigs:
+    - labels:
+        env: "dev"
+      targets:
+        - zookeeper:9103
+#  relabelConfigs:
+#    - sourceLabels: [__address__]
+#      targetLabel: hostname
+#      regex: '([^:]+)(:[0-9]+)?'
+#      replacement: '${1}'
+
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: kafka-broker
+  namespace: default
+  labels:
+    prometheus: system-monitoring-prometheus
+spec:
+  scrapeInterval: 5s
+  staticConfigs:
+    - labels:
+        env: "dev"
+      targets:
+        - broker:9102
+#  relabelConfigs:
+#    - sourceLabels: [__address__]
+#      targetLabel: hostname
+#      regex: '([^:]+)(:[0-9]+)?'
+#      replacement: '${1}'

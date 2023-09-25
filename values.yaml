@@ -1,0 +1,8 @@
+prometheus:
+  prometheusSpec:
+    podMonitorSelector:
+      matchLabels:
+        team: your-team
+    scrapeConfigSelector:
+            matchLabels:
+              prometheus: system-monitoring-prometheus
