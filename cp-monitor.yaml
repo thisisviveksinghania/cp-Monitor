@@ -38,3 +38,23 @@ spec:
 #      targetLabel: hostname
 #      regex: '([^:]+)(:[0-9]+)?'
 #      replacement: '${1}'
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: kafka-connect
+  namespace: default
+  labels:
+    prometheus: system-monitoring-prometheus
+spec:
+  scrapeInterval: 5s
+  staticConfigs:
+    - labels:
+        env: "dev"
+      targets:
+        - connect:9104
+#  relabelConfigs:
+#    - sourceLabels: [__address__]
+#      targetLabel: hostname
+#      regex: '([^:]+)(:[0-9]+)?'
+#      replacement: '${1}'

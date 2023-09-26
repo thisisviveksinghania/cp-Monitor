@@ -4,5 +4,5 @@ prometheus:
       matchLabels:
         team: your-team
     scrapeConfigSelector:
-            matchLabels:
-              prometheus: system-monitoring-prometheus
+      matchLabels:
+        prometheus: system-monitoring-prometheus
